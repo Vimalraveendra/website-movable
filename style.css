@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 100vh;
+}
+
+/* nav section */
+.form-inline {
+  margin: 0;
+}
+
+.form-inline input {
+  position: relative;
+}
+.card {
+  width: 180px;
+  position: absolute;
+  background-color: rgb(243, 243, 243);
+  top: 55px;
+  left: 5px;
+  border-radius: 10px;
+  display: none;
+  z-index: 1;
+}
