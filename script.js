@@ -78,17 +78,55 @@ const usersData=[
     {
       "id":10018, 
       "name":"Felix"
+    },{
+      "id":10019,
+      "name":"Gangster"
+    },
+    {
+      "id":10020,
+      "name":"Gambler"
+    },
+    {
+      "id":10021, 
+      "name":"Guardian"
+    },{
+      "id":10022,
+      "name":"Harry"
+    },
+    {
+      "id":10023,
+      "name":"Hamilton"
+    },
+    {
+      "id":10024, 
+      "name":"Helen"
     }
   
   
   ]
 
+// filtering the patientList based on the onclick event
+function filterPatientList(event){
+  let letter = event.target.textContent;
 
+  //   clearing the parent container before adding
+  patientListEl.innerHTML="";
+  usersData.forEach(user=>{
+    if(user.name.charAt(0).toLowerCase()===letter.toLowerCase()||user.name.toLocaleLowerCase()===letter.toLowerCase()){ 
+      createPatients(user)
+      dropDownEl.style.display="none"
+      inputEL.value="";
+    } 
+  })
+  
+}
 
   // creating each letter inside the list
   function createLetters(letter){
       const letterList = document.createElement('li');
       const letterText = document.createTextNode(letter)
+      letterList.addEventListener('click',filterPatientList)
+      letterList.addEventListener('mouseleave',renderPatients )
       letterList.appendChild(letterText)
       lettersListEl.appendChild(letterList)
       
@@ -108,9 +146,31 @@ const usersData=[
 //   invoking renderLetters function when the page loads
   renderLetters()
 
+  // creating patient card based on the event
+function createPatientCard({name,id}){
+  patientCardEl.innerHTML=`
+  <h3> ${name}</h3>
+  <p>${id}</p>
+  `
+  
+}
+
+  // rendering patientCard based on the onclick event
+  function renderPatientCard(event){
+   let name = event.target.textContent
+   // clearing the parent container before adding
+   patientCardEl.innerHTML="";
+   usersData.forEach(user=>{
+     if(user.name.toLowerCase()===name.toLowerCase()){
+       createPatientCard(user)
+     }
+   })
+  }
+
   function createPatients(patient){
     const patientList= document.createElement('li');
     const patientText = document.createTextNode(patient.name)
+    patientList.addEventListener('click',renderPatientCard)
     patientList.appendChild(patientText)
     patientListEl.appendChild(patientList)
 
@@ -126,11 +186,13 @@ const usersData=[
   renderPatients()
 
 
+
+
 //   creating users inside the usersList
   function createUsers(user){
-
     const userList = document.createElement('li');
     const userText = document.createTextNode(user.name)
+    userList.addEventListener('click',filterPatientList)
     userList.appendChild(userText)
     searchListEl.appendChild(userList)
 
@@ -181,7 +243,7 @@ inputEL.addEventListener('input',renderDropDown)
 let isMdn = 0
 splitBarEl.addEventListener('mousedown', mouseDown)
 
-function mouseDown(event) {  
+function mouseDown() {  
     isMdn  = 1
   document.body.addEventListener('mousemove', mouseVertical)
   document.body.addEventListener('mouseup', end)

@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+*:focus{
+  outline:none;
+}
 
 body {
   margin: 0;
@@ -17,11 +20,11 @@ body {
   position: relative;
 }
 .card {
-  width: 180px;
+  width: 200px;
   position: absolute;
   background-color: rgb(243, 243, 243);
   top: 55px;
-  left: 5px;
+  left: 15px;
   border-radius: 10px;
   display: none;
   z-index: 1;
@@ -45,6 +48,7 @@ ul {
 
 /* body section */
 
+/* main-container */
 .main-container {
   display: flex;
   border: 1px black solid;
@@ -53,6 +57,7 @@ ul {
   overflow: hidden;
 }
 
+/* left-pane */
 .patient-container {
   flex-grow: 0;
   flex-shrink: 0;
@@ -61,12 +66,14 @@ ul {
   display: flex;
 }
 
+/* right-pane */
 .card-container {
   flex-grow: 1;
   flex-shrink: 0;
   background-color: aquamarine;
 }
 
+/* separator */
 .split-bar {
   flex-grow: 0;
   flex-shrink: 0;
@@ -77,6 +84,7 @@ ul {
   margin: 0 0 0 auto;
 }
 
+/* alphabets list */
 .letter-bar {
   background-color: black;
 }
@@ -89,6 +97,7 @@ ul {
   font-size: 1.25rem;
 }
 
+/* patient card container */
 .list-container {
   width: 100%;
 }
@@ -96,18 +105,20 @@ ul {
   width: 100%;
 }
 
+/* patient list */
 .patient-list li {
   border: 1px solid black;
   padding: 0 10px;
   background-color: #eee;
 }
 
+/* patient card */
 .patient-card {
   width: 500px;
   height: 350px;
   background-color: #eee;
   box-shadow: 4px 5px 3px grey;
-  margin: 3rem 0 0 1rem;
+  margin: 3rem 0 2rem 1rem;
 
   display: flex;
   flex-direction: column;
@@ -115,16 +126,19 @@ ul {
   align-items: center;
 }
 
+/* media queries on small screens */
 @media only screen and (max-width: 690px) {
   .patient-card {
-    max-width: 70%;
+    width: 80%;
   }
-}
 
 @media only screen and (max-width: 576px) {
   .main-container {
     display: flex;
     flex-direction: column;
+  }
+  .list-container {
+    width: 100%;
   }
   .card-container {
     display: flex;
@@ -133,5 +147,9 @@ ul {
   }
   .patient-card {
     width: 70%;
+    margin: 2rem 0 1rem 1rem;
+  }
+  .split-bar{
+    margin: 0 0 0 0;
   }
 }
