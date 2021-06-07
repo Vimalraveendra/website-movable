@@ -16,22 +16,24 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- nav heading section -->
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed">
         <form class="form-inline">
           <input class="form-control mr-sm-2" type="text" placeholder="Search">
+          
         </form>
       </nav> 
-      <div  class="card">
+      <!-- <div  class="card"> -->
         <ul class="list">
              
         </ul>
 
-      </div>
+      <!-- </div> -->
 
  <!-- body section -->
  <main> 
@@ -39,9 +41,15 @@
        <div class="patient-container">  
 
           <div class="letter-bar">
+             <button class="caret caret-down">
+              <i class="fas fa-caret-up"></i>
+             </button>
               <ul class='letters'>
 
               </ul> 
+              <button class="caret caret-up">
+                <i class="fas fa-caret-up"></i>
+               </button>
            
           </div>
 

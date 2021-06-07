@@ -8,6 +8,8 @@ const patientContainerEl = document.querySelector('.patient-container')
 const cardContainerEl = document.querySelector('.card-container')
 const patientCardEl = document.querySelector('.patient-card')
 
+const searchData=["Nazywa","Identyfikator","Pesel","Miasto","Phone"]
+
 const usersData=[
     {
       "id":10001,
@@ -100,7 +102,46 @@ const usersData=[
     {
       "id":10024, 
       "name":"Helen"
+    },
+    {
+      "id":10025, 
+      "name":"Immanuel"
+    },{
+      "id":10026,
+      "name":"Inker"
+    },
+    {
+      "id":10027,
+      "name":"Ivan"
+    },
+    {
+      "id":10028, 
+      "name":"Jennifer"
+    },{
+      "id":10029,
+      "name":"James"
+    },
+    {
+      "id":10030,
+      "name":"John"
+    },
+    {
+      "id":10031, 
+      "name":"Kevin"
+    },{
+      "id":10032,
+      "name":"Karl"
+    },
+    {
+      "id":10033,
+      "name":"Kristopher"
+    },
+    {
+      "id":10034, 
+      "name":"Lenin"
     }
+  
+  
   
   
   ]
@@ -186,13 +227,17 @@ function createPatientCard({name,id}){
   renderPatients()
 
 
+  function setInputValue(event){
+    console.log(event.target.textContent)
+  }
 
 
 //   creating users inside the usersList
   function createUsers(user){
     const userList = document.createElement('li');
-    const userText = document.createTextNode(user.name)
-    userList.addEventListener('click',filterPatientList)
+    const userText = document.createTextNode(user)
+    userList.addEventListener('click',setInputValue)
+    // userList.addEventListener('click',filterPatientList)
     userList.appendChild(userText)
     searchListEl.appendChild(userList)
 
@@ -235,6 +280,15 @@ function renderDropDown(){
     
 }
 
+function renderSearchList(){
+  //clearing the parent container before adding
+  searchListEl.innerHTML="";
+  searchListEl  .classList.toggle('done')
+  searchData.forEach(data=>createUsers(data))
+}
+
+inputEL.addEventListener('click',renderSearchList)
+
 inputEL.addEventListener('input',renderDropDown)
 
 
@@ -268,3 +322,18 @@ const end = () => {
   document.body.removeEventListener('mouseup', end)
   splitBarEl.removeEventListener('mousemove', mouseVertical)
 }
+
+
+const buttonScrollDown = document.querySelector('.caret-down  ')
+buttonScrollDown.addEventListener('click',()=>{
+ 
+  document.body.scrollBottom = 0;
+  document.documentElement.scrollBottom = 0;
+})
+
+const buttonScrollUp = document.querySelector('.caret-up  ')
+buttonScrollUp.addEventListener('click',()=>{
+  
+  document.body.scrollBottom = 0;
+  document.documentElement.scrollBottom = 0;
+})
