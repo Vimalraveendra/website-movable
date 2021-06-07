@@ -228,7 +228,10 @@ function createPatientCard({name,id}){
 
 
   function setInputValue(event){
-    console.log(event.target.textContent)
+     
+    inputEL.value=event.target.textContent;
+    searchListEl.style.display='none'
+   
   }
 
 
@@ -289,7 +292,7 @@ function renderSearchList(){
 
 inputEL.addEventListener('click',renderSearchList)
 
-inputEL.addEventListener('input',renderDropDown)
+// inputEL.addEventListener('input',renderDropDown)
 
 
 
