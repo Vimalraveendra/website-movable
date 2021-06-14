@@ -1,4 +1,5 @@
 const inputEL =document.querySelector('.form-control')
+const inputInsideEl = document.getElementById('input-inside')
 const searchListEl = document.querySelector('.list')
 const dropDownEl = document.querySelector('.card')
 const lettersListEl = document.querySelector('.letters')
@@ -7,6 +8,8 @@ const splitBarEl = document.querySelector('.split-bar')
 const patientContainerEl = document.querySelector('.patient-container')
 const cardContainerEl = document.querySelector('.card-container')
 const patientCardEl = document.querySelector('.patient-card')
+
+console.log("input",inputInsideEl)
 
 const searchData=["Nazywa","Identyfikator","Pesel","Miasto","Phone"]
 
@@ -147,15 +150,15 @@ const usersData=[
   ]
 
 // filtering the patientList based on the onclick event
-function filterPatientList(event){
+function filterPatientList(event){    
   let letter = event.target.textContent;
 
   //   clearing the parent container before adding
   patientListEl.innerHTML="";
   usersData.forEach(user=>{
-    if(user.name.charAt(0).toLowerCase()===letter.toLowerCase()||user.name.toLocaleLowerCase()===letter.toLowerCase()){ 
+    if(user.name.charAt(0).toLowerCase()===letter.toLowerCase()||user.name.toLowerCase()===letter.toLowerCase()){ 
       createPatients(user)
-      dropDownEl.style.display="none"
+      // dropDownEl.style.display="none"
       inputEL.value="";
     } 
   })
@@ -167,7 +170,7 @@ function filterPatientList(event){
       const letterList = document.createElement('li');
       const letterText = document.createTextNode(letter)
       letterList.addEventListener('click',filterPatientList)
-      letterList.addEventListener('mouseleave',renderPatients )
+      // letterList.addEventListener('mouseleave',renderPatients )
       letterList.appendChild(letterText)
       lettersListEl.appendChild(letterList)
       
@@ -208,11 +211,12 @@ function createPatientCard({name,id}){
    })
   }
 
-  function createPatients(patient){
+  function createPatients(patient){ 
     const patientList= document.createElement('li');
     const patientText = document.createTextNode(patient.name)
-    patientList.addEventListener('click',renderPatientCard)
     patientList.appendChild(patientText)
+    patientList.addEventListener('click',renderPatientCard)
+    patientList.addEventListener('click',filterPatientList)
     patientListEl.appendChild(patientList)
 
   }
@@ -227,71 +231,89 @@ function createPatientCard({name,id}){
   renderPatients()
 
 
-  function setInputValue(event){
-     
-    inputEL.value=event.target.textContent;
-    searchListEl.style.display='none'
+   //rendering usersList inside the dropDown
+   function renderUsers(){
    
+     // clearing the parent container before adding
+     patientListEl.innerHTML="";
+  usersData.forEach(user=>{
+      if(user.name.toLowerCase().includes(inputInsideEl.value.toLowerCase())){
+          createPatients(user)
+      } 
+  })
+
+}
+
+  function setUserInput(){
+    if(inputEL.value==='Nazywa'){
+       renderUsers()
+    }
+    // inputEL.addEventListener('mouseleave',function(){
+    //   inputEL.value="";
+    // })
   }
+
+  function setInputValue(event){
+    inputEL.value=event.target.textContent;
+    
+    inputInsideEl.focus();
+    searchListEl.classList.toggle('done')
+    inputInsideEl.addEventListener('input',setUserInput)
+    inputInsideEl.value="";
+  } 
+    
+  
 
 
 //   creating users inside the usersList
   function createUsers(user){
+  
     const userList = document.createElement('li');
     const userText = document.createTextNode(user)
-    userList.addEventListener('click',setInputValue)
-    // userList.addEventListener('click',filterPatientList)
+    userList.addEventListener('click',setInputValue )
     userList.appendChild(userText)
     searchListEl.appendChild(userList)
 
   }
 
-  //rendering usersList inside the dropDown
-  function renderUsers(){
-      const users=[]
-       // clearing the parent container before adding
-    searchListEl.innerHTML="";
-    usersData.forEach(user=>{
-        if(user.name.toLowerCase().includes(inputEL.value.toLowerCase())){
-            createUsers(user)
-            users.push(user)
-        }
-    })
-   return users
-  }
-
-  // rendering dropDown of usersList based on the searchText
-function renderDropDown(){
  
-    let searchText = inputEL.value;
-    //  searchText length greater than zero invoke renderUsers 
-    if(searchText.length>0){
-       const users= renderUsers();
-    //    if the users length greater than zero render users list
-       if(users.length>0){
-        dropDownEl.style.display="block"
-       }else{
-        dropDownEl.style.display="none"
-       }
-    }
-    // searchText length is less than one render none
-    else{
-      dropDownEl.style.display="none"
-    }
+
+//   // rendering dropDown of usersList based on the searchText
+// function renderDropDown(){
+ 
+//     let searchText = inputEL.value;
+//     //  searchText length greater than zero invoke renderUsers 
+//     if(searchText.length>0){
+//        const users= renderUsers();
+//     //    if the users length greater than zero render users list
+//        if(users.length>0){
+//         dropDownEl.style.display="block"
+//        }else{
+//         dropDownEl.style.display="none"
+//        }
+//     }
+//     // searchText length is less than one render none
+//     else{
+//       dropDownEl.style.display="none"
+//     }
 
    
     
-}
+// }
+
+// function setSearchInput(){
+//   console.log()
+// }
 
 function renderSearchList(){
   //clearing the parent container before adding
   searchListEl.innerHTML="";
-  searchListEl  .classList.toggle('done')
+  searchListEl.classList.toggle('done')
   searchData.forEach(data=>createUsers(data))
 }
 
 inputEL.addEventListener('click',renderSearchList)
-
+document.querySelector('.navbar').addEventListener('click',renderPatients)
 // inputEL.addEventListener('input',renderDropDown)
 
 
