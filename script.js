@@ -9,7 +9,7 @@ const patientContainerEl = document.querySelector('.patient-container')
 const cardContainerEl = document.querySelector('.card-container')
 const patientCardEl = document.querySelector('.patient-card')
 
-console.log("input",inputInsideEl)
+
 
 const searchData=["Nazywa","Identyfikator","Pesel","Miasto","Phone"]
 
@@ -22,7 +22,7 @@ const usersData=[
       "name":"Adam"
     },{
       "id":10003,
-      "name":"Antony"
+      "name":"Antony AdamGonslavas"
     },
     {
       "id":10004,
@@ -30,7 +30,7 @@ const usersData=[
     },
     {
       "id":10005,
-      "name":"Boss"
+      "name":"Boss AntonyMarshell"
     },
     {
       "id":10006,
@@ -38,7 +38,7 @@ const usersData=[
     },
     {
       "id":10007,
-      "name":"Christopher"
+      "name":"Christopher Gonsalves"
     },
     {
       "id":10008,
@@ -46,7 +46,7 @@ const usersData=[
     },
     {
       "id":10009,
-      "name":"Christy"
+      "name":"Christy Christopher"
     },
     {
       "id":10010,
@@ -54,7 +54,7 @@ const usersData=[
     },
     {
       "id":10011,
-      "name":"Danny"
+      "name":"Danny ImmanuelBidenSalves"
     },
     {
       "id":10012,
@@ -248,9 +248,7 @@ function createPatientCard({name,id}){
     if(inputEL.value==='Nazywa'){
        renderUsers()
     }
-    // inputEL.addEventListener('mouseleave',function(){
-    //   inputEL.value="";
-    // })
+    
   }
 
   function setInputValue(event){
@@ -259,7 +257,7 @@ function createPatientCard({name,id}){
     inputInsideEl.focus();
     searchListEl.classList.toggle('done')
     inputInsideEl.addEventListener('input',setUserInput)
-    inputInsideEl.value="";
+    
   } 
     
   
@@ -271,6 +269,8 @@ function createPatientCard({name,id}){
     const userList = document.createElement('li');
     const userText = document.createTextNode(user)
     userList.addEventListener('click',setInputValue )
+    inputInsideEl.value="";
+    inputEL.value ="";
     userList.appendChild(userText)
     searchListEl.appendChild(userList)
 
