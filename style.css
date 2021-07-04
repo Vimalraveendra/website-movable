@@ -171,7 +171,13 @@ ul {
 }
 
 .patient-list li :hover{
-  overflow: auto;
+  overflow:visible;
+  background-color: aqua;
+}
+/* Style the active class, and buttons on mouse-over */
+.active, .patient-list li:hover {
+  background-color: #666;
+  color: white;
 }
 
 /* patient card */
