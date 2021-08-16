@@ -127,7 +127,7 @@ ul {
 }
 .letters{
   height: 422px;
-    overflow: auto;
+    overflow-y: auto;
 }
 
 .letters li {
@@ -142,6 +142,7 @@ ul {
 .caret{
   background-color: #b1afaf;
   border:none;
+  width:28px;
 
 }
 
