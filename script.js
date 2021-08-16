@@ -10,7 +10,7 @@ const cardContainerEl = document.querySelector('.card-container')
 const patientCardEl = document.querySelector('.patient-card')
 
 
-
+  
 
 
 const searchData = ["Nazywa", "Identyfikator", "Pesel", "Miasto", "Phone"]
@@ -144,12 +144,87 @@ const usersData = [
   {
     "id": 10034,
     "name": "Lenin"
+  },
+  {
+    "id": 10035,
+    "name": "Mann"
+  },
+  {
+    "id": 10036,
+    "name": "Naan"
+  },
+  {
+    "id": 10037,
+    "name": "Oyster"
+  },
+  {
+    "id": 10038,
+    "name": "Peter"
+  },
+  {
+    "id": 10039,
+    "name": "Quiz"
+  },
+  {
+    "id": 10040,
+    "name": "Roger"
+  },
+  {
+    "id": 10041,
+    "name": "Stephen"
+  },
+  {
+    "id": 10042,
+    "name": "Titan"
+  },
+  {
+    "id": 10043,
+    "name": "Uva"
+  },
+  {
+    "id": 10044,
+    "name": "Vogue"
+  },
+  {
+    "id": 10045,
+    "name": "Willy"
+  },
+  {
+    "id": 10046,
+    "name": "Xenon"
+  },
+  {
+    "id": 10047,
+    "name": "Yogi"
+  },
+  {
+    "id": 10048,
+    "name": "Zebra"
   }
 
 
 
 
 ]
+
+  $(document).ready(function () {
+    $('.caret-up').click(function () {
+        $('.letters').animate({
+            scrollTop: '+=100'
+        }, 100);
+    });
+});
+$(document).ready(function () {
+  $('.caret-down').click(function () {  
+      $('.letters').animate({
+          scrollTop: '-=100'
+      }, 100);
+  });
+});
+
+  // const caretDownButtonEl = document.querySelector('.caret-down')
+  // caretDownButtonEl.addEventListener('click', scrollDiv)
+
 
 // filtering the patientList based on the onclick event
 function filterPatientList(event) {
@@ -232,6 +307,7 @@ function renderPatients() {
 for (var i = 0; i < patientListItemEl.length; i++) {
   patientListItemEl[i].addEventListener("click", function() {
     let current = document.getElementsByClassName("active");
+  
 
     // If there's no active class
     if (current.length > 0) {
