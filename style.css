@@ -1,44 +1,52 @@
 /* hide scroll bar   */
-::-webkit-scrollbar{
+/* ::-webkit-scrollbar{
   display: none;
-}
+} */
 
 * {
   box-sizing: border-box;
 }
-*:focus{
-  outline:none;
+*:focus {
+  outline: none;
 }
-input:focus, select:focus{
+input:focus,
+select:focus {
   outline: none;
 }
 body {
   margin: 0;
   padding: 0;
-  min-width: 100vh;
+  min-height: 100vh;
 }
-
-  /* .fixed{
+main {
+  /* border:1px solid black; */
+  /* min-height: 100vh; */
+}
+/* .fixed{
     position:fixed;
     top:0;
     width:100%
   } */
 /* nav section */
+
+.navbar {
+  height: 6vh;
+}
 .form-inline {
   margin: 0;
-  padding:0;  
+  padding: 0;
 }
 
 .form-inline input {
   position: relative;
- 
+  height: 25px;
 }
 
-#input-inside{
-  position:absolute;
-  left:122px;
-  border:none;
-  padding:0; 
+#input-inside {
+  position: absolute;
+  left: 122px;
+  border: none;
+  padding: 0;
 }
 /* .card {
   width: 200px;
@@ -51,14 +59,13 @@ body {
   z-index: 1;
 } */
 
-
 ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.list{
+.list {
   width: 200px;
   position: absolute;
   background-color: rgb(243, 243, 243);
@@ -84,21 +91,23 @@ ul {
 /* main-container */
 .main-container {
   display: flex;
-  border: 1px black solid;
-  margin: 0 2px;
-  background-color: antiquewhite;
+  /* border: 1px black solid;
+  margin: 0 2px; */
+  /* background-color: antiquewhite; */
   overflow: hidden;
+  height: 94vh;
 }
 
 /* left-pane */
 .patient-container {
   flex-grow: 0;
   flex-shrink: 0;
-  flex-basis: 15%;
+  /* flex-basis: 15%; */
   background-color: aqua;
   display: flex;
-  width:180px;  
- 
+  width: 180px;
+
+  border: 1px solid black;
 }
 
 /* right-pane */
@@ -106,7 +115,8 @@ ul {
   flex-grow: 1;
   flex-shrink: 0;
   background-color: aquamarine;
-  
+  border: 1px solid black;
+  margin-right: 1px;
 }
 
 /* separator */
@@ -118,36 +128,45 @@ ul {
   width: 0.8rem;
   cursor: col-resize;
   margin: 0 0 0 auto;
+  /* border:1px solid black; */
 }
 
 /* alphabets list */
 
 .letter-bar {
   background-color: black;
+  /* min-height:100vh;   */
+  position: relative;
 }
-.letters{
-  height: 422px;
-    overflow-y: auto;
+.letters {
+  /* height: 422px; */
+  height: 88vh;
+  overflow-y: auto;
 }
 
 .letters li {
   text-align: center;
   color: #fff;
   margin: 0;
-  padding: 5px;
-  font-size: 1.25rem;
-
+  /* padding: 5px;
+  font-size: 1.25rem; */
+  padding: 1px;
+  font-size: 1.05rem;
 }
 
-.caret{
+.caret {
   background-color: #b1afaf;
-  border:none;
-  width:28px;
-
+  border: none;
+  width: 24px;
 }
 
-.caret .fas{
+.caret .fas {
   font-size: 20px;
+}
+.caret-down {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
 }
 
 /* patient card container */
@@ -157,7 +176,7 @@ ul {
 .patient-list {
   width: 95%;
   height: 450px;
-    /* overflow: auto; */
+  /* overflow: auto; */
 }
 
 /* patient list */
@@ -168,23 +187,24 @@ ul {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width:100%;
+  max-width: 100%;
 }
 
-.patient-list li :hover{
-  overflow:visible;
+.patient-list li :hover {
+  overflow: visible;
   background-color: aqua;
 }
 /* Style the active class, and buttons on mouse-over */
-.active, .patient-list li:hover {
+.active,
+.patient-list li:hover {
   background-color: #666;
   color: white;
 }
 
 /* patient card */
 .patient-card {
-  width: 500px;
-  height: 350px;
+  /* width: 500px;
+  height: 350px; */
   background-color: #eee;
   box-shadow: 4px 5px 3px grey;
   margin: 3rem 0 2rem 1rem;
@@ -193,6 +213,8 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 40vw;
+  height: 65vh;
 }
 
 /* media queries on small screens */
@@ -200,7 +222,7 @@ ul {
   .patient-card {
     width: 80%;
   }
-
+}
 @media only screen and (max-width: 576px) {
   .main-container {
     display: flex;
@@ -218,7 +240,17 @@ ul {
     width: 70%;
     margin: 2rem 0 1rem 1rem;
   }
-  .split-bar{
+  .split-bar {
     margin: 0 0 0 0;
+  }
+}
+
+/* media queries on small screens */
+@media only screen and (min-height: 550px) {
+  .navbar {
+    height: 9vh;
+  }
+  .main-container {
+    height: 91vh;
   }
 }
