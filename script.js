@@ -405,7 +405,7 @@ function renderSearchList() {
   searchData.forEach(data => createUsers(data))
 }
 
-inputEL.addEventListener('click', renderSearchList)
+// inputEL.addEventListener('click', renderSearchList)
 document.querySelector('.navbar').addEventListener('click', renderPatients)
 // inputEL.addEventListener('input',renderDropDown)
 
