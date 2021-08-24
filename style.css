@@ -10,13 +10,15 @@
   outline: none;
 }
 input:focus,
-select:focus {
+select:focus,
+button:focus {
   outline: none;
 }
 body {
   margin: 0;
   padding: 0;
   /* min-height: 100vh; */
+  overflow-y: hidden;
 }
 h1 {
   background-color: black;
@@ -26,7 +28,7 @@ main {
   /* border:1px solid black; */
   /* min-height: 100vh; */
   /* height: 100vh; */
-  height: 94vh;
+  height: 100vh;
   /* position: absolute;
   top: 40px;
   width: 100vw; */
@@ -107,7 +109,7 @@ ul {
   margin: 0 2px; */
   /* background-color: antiquewhite; */
   overflow: hidden;
-  height: 100vh;
+  /* height: 100vh; */
   height: 95vh;
 }
 
@@ -153,11 +155,15 @@ ul {
   /* min-height: 100%; */
   /* position: absolute;
   height: 100vh; */
+  height: 94vh;
+  overflow-y: auto;
 }
 .letters {
   /* height: 422px; */
-  height: 88vh;
-  overflow-y: auto;
+  /* height: 88vh;
+  overflow-y: auto; */
+  margin-top: 16px;
+  margin-bottom: 35px;
 }
 
 .letters li {
@@ -173,11 +179,16 @@ ul {
 .caret {
   background-color: #b1afaf;
   border: none;
-  width: 24px;
+  /* width: 24px; */
 }
 
 .caret .fas {
-  font-size: 20px;
+  font-size: 13px;
+}
+.caret-up {
+  position: absolute;
+  top: 40px;
+  left: 0px;
 }
 .caret-down {
   position: absolute;
@@ -262,11 +273,11 @@ ul {
 }
 
 /* media queries on small screens */
-@media only screen and (max-height: 500px) {
+@media only screen and (max-height: 450px) {
   .navbar {
     /* height: 8vh; */
   }
-  .main-container {
-    /* height: 92vh; */
+  .letters {
+    /* height: 75vh; */
   }
 }
