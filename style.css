@@ -16,11 +16,20 @@ select:focus {
 body {
   margin: 0;
   padding: 0;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+}
+h1 {
+  background-color: black;
+  height: 20px;
 }
 main {
   /* border:1px solid black; */
   /* min-height: 100vh; */
+  /* height: 100vh; */
+  height: 94vh;
+  /* position: absolute;
+  top: 40px;
+  width: 100vw; */
 }
 /* .fixed{
     position:fixed;
@@ -30,7 +39,10 @@ main {
 /* nav section */
 
 .navbar {
-  height: 6vh;
+  height: 40px;
+  /* position: absolute;
+  top: 0;
+  width: 100vw; */
 }
 .form-inline {
   margin: 0;
@@ -95,7 +107,8 @@ ul {
   margin: 0 2px; */
   /* background-color: antiquewhite; */
   overflow: hidden;
-  height: 94vh;
+  height: 100vh;
+  height: 95vh;
 }
 
 /* left-pane */
@@ -136,7 +149,10 @@ ul {
 .letter-bar {
   background-color: black;
   /* min-height:100vh;   */
-  position: relative;
+  /* position: relative; */
+  /* min-height: 100%; */
+  /* position: absolute;
+  height: 100vh; */
 }
 .letters {
   /* height: 422px; */
@@ -246,11 +262,11 @@ ul {
 }
 
 /* media queries on small screens */
-@media only screen and (min-height: 550px) {
+@media only screen and (max-height: 500px) {
   .navbar {
-    height: 9vh;
+    /* height: 8vh; */
   }
   .main-container {
-    height: 91vh;
+    /* height: 92vh; */
   }
 }
