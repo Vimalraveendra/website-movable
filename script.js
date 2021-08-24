@@ -209,15 +209,15 @@ const usersData = [
 
   $(document).ready(function () {
     $('.caret-up').click(function () {
-        $('.letters').animate({
-            scrollTop: '+=100'
+        $('.letter-bar').animate({
+            scrollTop: '+=200'
         }, 100);
     });
 });
 $(document).ready(function () {
   $('.caret-down').click(function () {  
-      $('.letters').animate({
-          scrollTop: '-=100'
+      $('.letter-bar').animate({
+          scrollTop: '-=200'
       }, 100);
   });
 });
