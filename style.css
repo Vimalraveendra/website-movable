@@ -186,12 +186,12 @@ ul {
   font-size: 13px;
 }
 .caret-up {
-  position: absolute;
+  position: fixed;
   top: 40px;
   left: 0px;
 }
 .caret-down {
-  position: absolute;
+  position: fixed;
   bottom: 0px;
   left: 0px;
 }
@@ -214,7 +214,7 @@ ul {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 100%;
+  /* max-width: 100%; */
 }
 
 .patient-list li :hover {
@@ -235,21 +235,60 @@ ul {
   background-color: #eee;
   box-shadow: 4px 5px 3px grey;
   margin: 3rem 0 2rem 1rem;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 40vw;
-  height: 65vh;
+  max-height: 500px;
+  min-height: 400px;
+}
+/* media queries on small screens */
+@media only screen and (max-width: 900px) {
+  .main-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .patient-container {
+    width: auto;
+    margin-top: 1px;
+    height: 220px;
+    overflow-y: auto;
+    margin-left: 18px;
+  }
+  .card-container {
+    height: 300px;
+  }
+  .letter-bar {
+    height: 210px;
+    position: absolute;
+  }
+  .split-bar {
+    width: 100%;
+    font-size: 6px;
+  }
+  .caret-up {
+    top: 40px;
+  }
+  .caret-down {
+    top: 246px;
+    height: 15px;
+  }
+  /* .patient-card {
+    width: 80%;
+  } */
 }
 
-/* media queries on small screens */
-@media only screen and (max-width: 690px) {
-  .patient-card {
-    width: 80%;
+@media only screen and (max-width: 768px) {
+  .main-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .letter-bar {
+    position: absolute;
   }
 }
+
 @media only screen and (max-width: 576px) {
   .main-container {
     display: flex;
