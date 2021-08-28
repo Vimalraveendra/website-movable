@@ -2,14 +2,42 @@
 /* ::-webkit-scrollbar{
   display: none;
 } */
-
+:root {
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family: Arial, Helvetica, sans-serif;
+}
 * {
   box-sizing: border-box;
 }
 *:focus {
   outline: none;
 }
-input:focus,
+.form input:focus,
 select:focus,
 button:focus {
   outline: none;
@@ -49,22 +77,41 @@ nav {
   top: 0;
   width: 100vw; */
 }
-.form-inline {
+.form {
   margin: 0;
   padding: 0;
   margin-left: 5px;
+  background-color: #fff;
+  border-radius: 5px;
 }
-
-.form-inline input {
-  position: relative;
+.form span {
+  padding-left: 3px;
+  background: transparent;
+  border: none;
+}
+.form span i {
+  transform: rotate(30deg);
+}
+.form input {
+  /* position: relative; */
   height: 25px;
+  border: none;
+  /* width: 85px; */
+  font-size: 0.85em;
+  background-color: transparent;
+}
+.form-input {
+  width: 65px;
 }
 
 #input-inside {
-  position: absolute;
-  left: 122px;
-  border: none;
+  /* position: absolute; */
+  /* left: 122px; */
+  /* border: none;
   padding: 0;
+  height: 24px;
+  top: 8px; */
+  width: 85px;
 }
 /* .card {
   width: 200px;
@@ -84,11 +131,11 @@ ul {
 }
 
 .list {
-  width: 200px;
+  width: 180px;
   position: absolute;
   background-color: rgb(243, 243, 243);
-  top: 55px;
-  left: 15px;
+  top: 35px;
+  left: 5px;
   border-radius: 10px;
   display: none;
   z-index: 1;
