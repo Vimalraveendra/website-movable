@@ -1,4 +1,4 @@
-const inputEL = document.querySelector('.form-control')
+const inputEL = document.querySelector('.form-input ')
 const inputInsideEl = document.getElementById('input-inside')
 const searchListEl = document.querySelector('.list')
 const dropDownEl = document.querySelector('.card')
@@ -405,8 +405,8 @@ function renderSearchList() {
   searchData.forEach(data => createUsers(data))
 }
 
-// inputEL.addEventListener('click', renderSearchList)
-document.querySelector('.navbar').addEventListener('click', renderPatients)
+inputEL.addEventListener('click', renderSearchList)
+document.querySelector('.nav-bar').addEventListener('click', renderPatients)
 // inputEL.addEventListener('input',renderDropDown)
 
 
