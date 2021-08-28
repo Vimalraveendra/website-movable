@@ -207,6 +207,21 @@ const usersData = [
 
 ]
 
+
+
+$(function(){
+  var current = location.pathname.split('/')[1];
+  $('.nav-list li a').each(function(){
+      var $this = $(this);
+     
+      // if the current path is like this link, make it active
+      if($this.attr('href').indexOf(current) !== -1){
+        $this.parent().addClass('nav-active');
+          
+      }
+  })
+})
+
   $(document).ready(function () {
     $('.caret-up').click(function () {
         $('.letter-bar').animate({

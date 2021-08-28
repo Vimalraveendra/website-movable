@@ -73,6 +73,7 @@ nav {
   background-color: black;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   /* position: absolute;
   top: 0;
   width: 100vw; */
@@ -130,6 +131,20 @@ ul {
   padding: 0;
 }
 
+.nav-list {
+  display: flex;
+  margin-right: 10px;
+}
+.nav-list li {
+  padding: 3px 5px;
+  /* background-color: var(--white); */
+  margin-right: 2px;
+}
+.nav-list li a {
+  text-decoration: none;
+  padding: 3px;
+  /* color: #000; */
+}
 .list {
   width: 180px;
   position: absolute;
@@ -279,6 +294,10 @@ ul {
   color: white;
 }
 
+.nav-active {
+  background-color: var(--blue);
+  color: var(--white);
+}
 /* patient card */
 .patient-card {
   /* width: 500px;
